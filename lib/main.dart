@@ -1,6 +1,16 @@
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  final _appLinks = AppLinks();
+
+// Subscribe to all events when app is started.
+// (Use allStringLinkStream to get it as [String])
+  _appLinks.allUriLinkStream.listen((uri) {
+    debugPrint("uri ${uri.toString()}");
+    // Do something (navigation, ...)
+  });
+
   runApp(const MyApp());
 }
 
